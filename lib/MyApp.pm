@@ -21,7 +21,15 @@ my $schema = GraphQL::Schema->new(query => GraphQL::Type::Object->new(
 ));
 
 post '/graphql' => sub {
-  send_as JSON => GraphQL::Execution->execute($schema, body_parameters->{query});
+  send_as JSON => GraphQL::Execution->execute(
+    $schema,
+    body_parameters->{query},
+    undef,
+    undef,
+    body_parameters->{variables},
+    body_parameters->{operationName},
+    undef,
+  );
 };
 
 get '/graphql' => sub {
