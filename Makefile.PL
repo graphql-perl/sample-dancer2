@@ -11,7 +11,7 @@ WriteMakefile(
     NAME                => 'MyApp',
     AUTHOR              => q{YOUR NAME <youremail@example.com>},
     VERSION_FROM        => 'lib/MyApp.pm',
-    ABSTRACT            => 'YOUR APPLICATION ABSTRACT',
+    ABSTRACT            => 'Sample Dancer2 app with GraphiQL talking to GraphQL',
     ($eumm_version >= 6.3001
       ? ('LICENSE'=> 'perl')
       : ()),
@@ -21,6 +21,7 @@ WriteMakefile(
         'YAML'       => 0,
         'Dancer2'     => 0.205001,
         'Plack::Middleware::Deflater' => 0,
+        'GraphQL' => '0.09', # first with introspection
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'MyApp-*' },
