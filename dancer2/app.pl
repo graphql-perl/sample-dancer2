@@ -4,11 +4,10 @@ use strict; use warnings;
 use Dancer2;
 use GraphQL::Schema;
 use GraphQL::Type::Object;
-use GraphQL::Type::Scalar qw($String);
+use GraphQL::Type::Scalar qw/ $String /;
 use GraphQL::Execution;
 
-set serializer => 'JSON'; # allows request->parameters get JSON, must send_as HTML if mean that
-set layout     => 'main';
+set serializer => 'JSON';
 set charset    => 'UTF-8';
 set template   => 'simple';
 
@@ -27,39 +26,38 @@ get '/' => sub {
     };
 };
 
-post '/graphiql' => sub {
-  send_as JSON => GraphQL::Execution->execute(
-    $schema,
-    body_parameters->{query},
-    undef,
-    undef,
-    body_parameters->{variables},
-    body_parameters->{operationName},
-    undef,
-  );
-};
-
 get '/graphiql' => sub {
-    use Data::Dumper;
-    warn "PARAMS " . Dumper params;
     send_as html => template 'graphiql', {
         title            => 'GraphiQL',
         graphiql_version => '0.11.2',
-        queryString      => safe_serialise(params->{query}),
-        operationName    => safe_serialise(params->{operationName}),
-        resultString     => safe_serialise(params->{result}),
-        variablesString  => safe_serialise(params->{variables}),
+        queryString      => safe_serialize( params->{'query'} ),
+        operationName    => safe_serialize( params->{'operationName'} ),
+        resultString     => safe_serialize( params->{'result'} ),
+        variablesString  => safe_serialize( params->{'variables'} ),
     };
 };
 
+post '/graphiql' => sub {
+    return GraphQL::Execution->execute(
+        $schema,
+        body_parameters->{'query'},
+        undef,
+        undef,
+        body_parameters->{'variables'},
+        body_parameters->{'operationName'},
+        undef,
+    );
+};
+
 my $JSON = JSON::MaybeXS->new->allow_nonref;
-# spelled rite
-sub safe_serialise {
-  my ($data) = @_;
-  return 'undefined' if !$data;
-  my $json = $JSON->encode($data);
-  $json =~ s#/#\\/#g;
-  $json;
+
+sub safe_serialize {
+    my $data = shift or return 'undefined';
+
+    my $json = $JSON->encode( $data );
+    $json =~ s#/#\\/#g;
+
+    return $json;
 }
 
 dance;
