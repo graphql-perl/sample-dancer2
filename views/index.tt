@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="<% settings.charset %>">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Perl GraphQL Dancer2 Demo</title>
+  <style>
+    body {
+      margin: 10;
+      background-color: #ddd;
+      font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+      font-size: 13px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div id="page">
+  <div id="content">
+    <h1>Perl GraphQL Dancer2 Demo App</h1>
+    <p>This demonstrates use of GraphQL.pm in a Dancer2 app.</p>
+    <p>The app has exactly one GraphQL schema: <code>helloWorld</code>.</p>
+    <p>The frontend uses the GraphiQL tool to query the Perl GraphQL backend.</p>
+    <p>To use the demo, type:</p>
+    <p><code>{helloWorld}</code></p>
+    <p>in the left hand pane in GraphiQL, then run your query using the button at the top.</p>
+    <p>Results are displayed in the pane to the right.</p>
+    <h2>Click to <a href="/graphiql">enter GraphiQL</a></h2>
+  </div>
+  <div id="footer">
+    <small><small>Powered by <a href="http://perldancer.org/">Dancer2</a> <% dancer_version %></small></small>
+  </div>
+<div>
+</body>
+</html>
