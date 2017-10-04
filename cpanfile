@@ -1,2 +1,11 @@
-requires 'Dancer2'         => 0.205001;
-requires 'GraphQL::Schema' => 0;
+requires 'Dancer2';
+requires 'GraphQL';
+
+on test => sub {
+    requires 'HTTP::Request::Common';
+    requires 'JSON::MaybeXS';
+    requires 'Plack::Test';
+};
+
+# END
+

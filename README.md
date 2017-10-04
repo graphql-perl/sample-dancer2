@@ -6,7 +6,7 @@
 
 ```
     cpanm --installdeps .
-    perl dancer2/app.pl
+    plackup bin/app.psgi
 ```
 
-then point your browser at `http://localhost:3000`
+then point your browser at `http://localhost:5000`

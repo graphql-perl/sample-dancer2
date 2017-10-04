@@ -1,6 +1,7 @@
-#!/usr/bin/env perl
-
 use strict; use warnings;
+
+package DemoApp;
+
 use Dancer2;
 use GraphQL::Schema;
 use GraphQL::Type::Object;
@@ -15,7 +16,10 @@ my $schema = GraphQL::Schema->new(
     query => GraphQL::Type::Object->new(
         name => 'QueryRoot',
         fields => {
-            helloWorld => { type => $String, resolve => sub { 'Hello, world!' } },
+            helloWorld => {
+                type => $String,
+                resolve => sub { 'Hello, world!' },
+            },
         },
     ),
 );
@@ -60,6 +64,6 @@ sub safe_serialize {
     return $json;
 }
 
-dance;
+1; # return true
 
 __END__
