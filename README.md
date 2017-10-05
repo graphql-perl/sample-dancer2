@@ -9,9 +9,9 @@
     plackup bin/app.psgi
 ```
 
-then point your browser at http://localhost:5000
+Point your browser at http://localhost:5000
 
-Now try entering this query in the upper left-hand pane:
+After clicking through to the GraphiQL tool, try entering this query in the upper left-hand pane:
 
 ```
 { helloWorld }
