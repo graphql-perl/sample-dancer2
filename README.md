@@ -9,4 +9,10 @@
     plackup bin/app.psgi
 ```
 
-then point your browser at `http://localhost:5000`
+then point your browser at http://localhost:5000
+
+Now try entering this query in the upper left-hand pane:
+
+```
+{ helloWorld }
+```
