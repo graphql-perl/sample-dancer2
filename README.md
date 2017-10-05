@@ -16,3 +16,8 @@ After clicking through to the GraphiQL tool, try entering this query in the uppe
 ```
 { helloWorld }
 ```
+
+## Acknowledgements
+
+A complete revamp of this applet, simplifying, clarifying and adding a
+test, was contributed by Nick Tonkin https://github.com/1nickt
