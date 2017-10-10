@@ -12,10 +12,13 @@ before_install:
   - source ~/travis-perl-helpers/init
   - build-perl
   - perl -V
-  - build-dist
-  - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
+#not a CPAN module
+#  - build-dist
+#  - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
 install:
-  - cpan-install --deps       # installs prereqs, including recommends
+#not a CPAN module
+  - cpanm --installdeps --notest .       # non-CPAN version
+#  - cpan-install --deps       # installs prereqs, including recommends
 #  - cpan-install --coverage   # installs converage prereqs, if enabled
 #before_script:
 #  - coverage-setup
