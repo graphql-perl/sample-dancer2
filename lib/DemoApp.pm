@@ -30,7 +30,7 @@ my $schema = GraphQL::Schema->new(
     ),
 );
 
-graphql '/graphiql' => $schema;
+graphql '/graphql' => $schema;
 
 1; # return true
 

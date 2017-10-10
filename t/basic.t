@@ -16,15 +16,15 @@ my $test = Plack::Test->create( $app );
 }
 
 {
-    my $response = $test->request( GET '/graphiql', Accept => 'text/html' );
-    is $response->code, 200,                                            'Got a 200 response code from "/graphiql"';
+    my $response = $test->request( GET '/graphql', Accept => 'text/html' );
+    is $response->code, 200,                                            'Got a 200 response code from "/graphql"';
     like $response->decoded_content, qr/React.createElement\(GraphiQL/, 'Content as expected';
 }
 
 {
     my $json = JSON::MaybeXS->new->allow_nonref;
     my $response = $test->request(
-        POST '/graphiql',
+        POST '/graphql',
         content => $json->encode({ query => '{helloWorld}' }),
     );
     is $response->code, 200,                                            'Got a 200 response code from POSTing the schema';

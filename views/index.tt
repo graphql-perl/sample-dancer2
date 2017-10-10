@@ -26,7 +26,7 @@
     <p><code>{helloWorld}</code></p>
     <p>in the left hand pane in GraphiQL, then run your query using the button at the top.</p>
     <p>Results are displayed in the pane to the right.</p>
-    <h2>Click to <a href="/graphiql">enter GraphiQL</a></h2>
+    <h2>Click to <a href="/graphql">enter GraphiQL</a></h2>
   </div>
   <div id="footer">
     <small><small>Powered by <a href="http://perldancer.org/">Dancer2</a> <% dancer_version %></small></small>
