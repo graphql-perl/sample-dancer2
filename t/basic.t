@@ -16,7 +16,7 @@ my $test = Plack::Test->create( $app );
 }
 
 {
-    my $response = $test->request( GET '/graphiql' );
+    my $response = $test->request( GET '/graphiql', Accept => 'text/html' );
     is $response->code, 200,                                            'Got a 200 response code from "/graphiql"';
     like $response->decoded_content, qr/React.createElement\(GraphiQL/, 'Content as expected';
 }
