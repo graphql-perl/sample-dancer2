@@ -20,7 +20,7 @@
   <div id="content">
     <h1>Perl GraphQL Dancer2 Demo App</h1>
     <p>This demonstrates use of GraphQL.pm in a Dancer2 app.</p>
-    <p>The app has exactly one GraphQL schema: <code>helloWorld</code>.</p>
+    <p>The schema has one field: <code>helloWorld</code>.</p>
     <p>The frontend uses the GraphiQL tool to query the Perl GraphQL backend.</p>
     <p>To use the demo, type:</p>
     <p><code>{helloWorld}</code></p>

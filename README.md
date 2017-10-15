@@ -1,17 +1,19 @@
 ## Dancer2 sample app
 
- This is a very trivial "hello, world" demonstration of using Dancer 2 to serve GraphQL.
+This is a small "hello, world" demonstration of using Dancer 2 to serve
+GraphQL.
 
 ### To use:
 
 ```
-    cpanm --installdeps .
-    plackup bin/app.psgi
+cpanm --installdeps .
+plackup bin/app.psgi
 ```
 
 Point your browser at http://localhost:5000
 
-After clicking through to the GraphiQL tool, try entering this query in the upper left-hand pane:
+After clicking through to the GraphiQL tool, try entering this query in
+the upper left-hand pane:
 
 ```
 { helloWorld }
