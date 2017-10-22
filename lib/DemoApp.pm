@@ -4,8 +4,6 @@ package DemoApp;
 
 use Dancer2;
 use GraphQL::Schema;
-use GraphQL::Type::Object;
-use GraphQL::Type::Scalar qw/ $String /;
 use Dancer2::Plugin::GraphQL;
 
 set charset    => 'UTF-8';
@@ -18,19 +16,16 @@ get '/' => sub {
     };
 };
 
-my $schema = GraphQL::Schema->new(
-    query => GraphQL::Type::Object->new(
-        name => 'QueryRoot',
-        fields => {
-            helloWorld => {
-                type => $String,
-                resolve => sub { 'Hello, world!' },
-            },
-        },
-    ),
-);
+my $schema = GraphQL::Schema->from_doc(<<'EOF');
+schema {
+  query: QueryRoot
+}
+type QueryRoot {
+  helloWorld: String
+}
+EOF
 
-graphql '/graphql' => $schema;
+graphql '/graphql' => $schema, { helloWorld => 'Hello, world!' };
 
 1; # return true
 

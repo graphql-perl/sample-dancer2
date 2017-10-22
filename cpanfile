@@ -1,6 +1,6 @@
 requires 'Dancer2';
-requires 'GraphQL';
-requires 'Dancer2::Plugin::GraphQL';
+requires 'GraphQL' => '0.16';
+requires 'Dancer2::Plugin::GraphQL' => '0.03';
 
 on test => sub {
     requires 'HTTP::Request::Common';
