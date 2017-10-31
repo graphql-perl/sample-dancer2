@@ -17,16 +17,11 @@ get '/' => sub {
 };
 
 my $schema = GraphQL::Schema->from_doc(<<'EOF');
-schema {
-  query: QueryRoot
-}
-type QueryRoot {
+type Query {
   helloWorld: String
 }
 EOF
 
 graphql '/graphql' => $schema, { helloWorld => 'Hello, world!' };
 
-1; # return true
-
-__END__
+1;
