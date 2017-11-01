@@ -16,12 +16,6 @@ get '/' => sub {
     };
 };
 
-my $schema = GraphQL::Schema->from_doc(<<'EOF');
-type Query {
-  helloWorld: String
-}
-EOF
-
-graphql '/graphql' => $schema, { helloWorld => 'Hello, world!' };
+graphql '/graphql' => [ 'Test' ];
 
 1;
